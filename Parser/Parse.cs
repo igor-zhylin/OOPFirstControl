@@ -10,6 +10,9 @@ namespace Parser
     public class Parse
     {
         private const string ExtentionSeparator = ".";
+        private const string FileTypeSeparator = ":";
+
+
 
     }
 }
