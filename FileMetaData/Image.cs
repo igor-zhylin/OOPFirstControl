@@ -1,0 +1,6 @@
+﻿namespace FileMetadata
+{
+    class Image
+    {
+    }
+}
