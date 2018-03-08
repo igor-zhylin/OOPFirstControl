@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Image.cs" />
-    <Compile Include="Metadata.cs" />
+    <Compile Include="MetaData.cs" />
+    <Compile Include="Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Text.cs" />
   </ItemGroup>

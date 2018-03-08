@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileMetadata
+namespace FileMetaData
 {
-    public class Text
+    class Text
     {
     }
 }
