@@ -48,5 +48,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileMetaData\FileMetaData.csproj">
+      <Project>{609b99c2-ab5b-4f0f-8c23-48de71218167}</Project>
+      <Name>FileMetaData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parser\Parser.csproj">
+      <Project>{4ac1ff35-ea34-4343-96c2-41289af895b9}</Project>
+      <Name>Parser</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

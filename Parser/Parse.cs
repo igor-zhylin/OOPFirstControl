@@ -6,50 +6,70 @@ namespace Parser
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System;
 
     public class Parse
     {
         #region Separators
 
-        private const string ExtentionSeparator = ".";
-        private const string FileTypeSeparator = ":";
-        private const string Separator = ";";
+        private const char ExtentionSeparator = '.';
+        private const char FileTypeSeparator = ':';
+        private const char EntitySeparator = ';';
 
         #endregion
 
+        #region Private Fields
+
         private string[] _fileEntities;
-        private string _input;
-        private List<MetaData> metaData;
+
+        #endregion
 
         #region Costructors
 
         public Parse()
         {
-            metaData = new List<MetaData>();
-        }
-
-        public Parse(string input)
-        {
-            this._input = input;
-            metaData = new List<MetaData>();
+            
         }
 
         #endregion
 
-        public void SetInputString(string input)
+        public List<MetaData> RunParser(string input)
         {
-            this._input = input;
+            var fileEntries = input
+               .Split(
+                   new string[] { Environment.NewLine },
+                   StringSplitOptions.RemoveEmptyEntries)
+               .Select(_ => _.Trim())
+               .Select(ParseFilesEntities)
+               .ToList();
+
+            return fileEntries;
         }
 
-        public List<MetaData> RunParser()
+        private void EntitiesSplitter(string input)
         {
+            _fileEntities = input.Split(
+                new string[] { Environment.NewLine },
+                StringSplitOptions.RemoveEmptyEntries);
 
-
-
-            return metaData;
         }
 
-        private MetaData CreateNewFileMetaData(
+        private MetaData ParseFilesEntities(string input)
+        {
+            var FilesDescription = input.Split(EntitySeparator);
+            var FormatAndName = input.Split(EntitySeparator).First();
+            var Format = FormatAndName.Split(FileTypeSeparator).First();
+            var NameAndSize = FormatAndName.Split(FileTypeSeparator).Last();
+            var Name = NameAndSize.Split('(').First();
+            var Size = NameAndSize
+                .Replace(Name, string.Empty)
+                .Trim('(', ')');
+            var Attributes = input.Split(EntitySeparator).Skip(1).ToArray();
+
+            return CreateNewMetaDataObj(Name, Format, Size, Attributes);
+        }
+
+        private MetaData CreateNewMetaDataObj(
             string Name,
             string Format,
             string Size,
