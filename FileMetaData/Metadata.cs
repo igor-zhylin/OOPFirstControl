@@ -8,10 +8,10 @@
 
     public class MetaData
     {
-        protected string Format { get; set; }
-        protected string Name { get; set; }
-        protected string Size { get; set; }
-        protected string[] AdditionalAtributes;
+        public string Format { get; set; }
+        public string Name { get; set; }
+        public string Size { get; set; }
+        public string[] AdditionalAtributes;
 
         public MetaData(
             string Name,
@@ -23,6 +23,14 @@
             this.Format = Format;
             this.Size = Size;
             this.AdditionalAtributes = Atributes;
+        }
+
+        public override string ToString()
+        {
+            return  $" Name {Name}; \n" +
+                    $" Format {Format}; \n" +
+                    $" Size {Size}; \n" +
+                    $" Atributes {string.Join("\n" , AdditionalAtributes)};";
         }
     }
 }

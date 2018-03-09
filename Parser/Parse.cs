@@ -27,8 +27,7 @@ namespace Parser
         #region Costructors
 
         public Parse()
-        {
-            
+        {    
         }
 
         #endregion
@@ -44,14 +43,6 @@ namespace Parser
                .ToList();
 
             return fileEntries;
-        }
-
-        private void EntitiesSplitter(string input)
-        {
-            _fileEntities = input.Split(
-                new string[] { Environment.NewLine },
-                StringSplitOptions.RemoveEmptyEntries);
-
         }
 
         private MetaData ParseFilesEntities(string input)

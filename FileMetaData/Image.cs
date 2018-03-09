@@ -4,7 +4,7 @@
 
     public class Image : MetaData
     {
-        protected string Resolution { get; set; }
+        public string Resolution { get; set; }
 
         public Image(
             string Name,

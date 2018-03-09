@@ -9,7 +9,7 @@
     public class UnknownType : MetaData
     {
 
-        protected string[] UnknownAtributes { get; set; }
+        public string[] UnknownAtributes { get; set; }
 
         public UnknownType(
             string Name,

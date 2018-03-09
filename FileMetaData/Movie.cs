@@ -6,7 +6,7 @@
     /// </summary>
     public class Movie : Image
     {
-        protected string Duration { get; set; }
+        public string Duration { get; set; }
 
         public Movie(
             string Name,

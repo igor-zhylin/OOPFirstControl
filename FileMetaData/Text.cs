@@ -4,7 +4,7 @@
    
     public class Text : MetaData
     {
-        protected string Content;
+        public string Content;
 
         public Text(
             string Name,
